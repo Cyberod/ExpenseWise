@@ -83,3 +83,40 @@
   .showPasswordToggle:hover {
     transform: scale(1.2);
   }
+
+  /* 
+    MESSAGE TAGS
+  */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .messages {
+    max-width: 600px;
+    margin: 20px auto;
+    width: 90%;
+    font-size: 18px;
+    text-align: center;;
+    animation: fadeIn 0.5s ease-in-out;
+    right: 20px;
+
+  }
+
+  .messages .alert {
+    padding: 6px;
+    border-radius: 10px;
+  }
+
+  
+.messages .close-btn {
+  font-size: 8px;
+  border-radius: 4px;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+

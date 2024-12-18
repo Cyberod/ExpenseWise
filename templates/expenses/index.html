@@ -4,19 +4,19 @@
 
 {% block content %}
 {% include 'partials/messages.html' %}
-<h1>Welcome to the Expense Tracker</h1>
 
-<ul class="List-group">
-    <li class="List-group-item">Bought Beer</li>
-    <li class="List-group-item">Bought Beer</li>
-    <li class="List-group-item">Bought Beer</li>
-    <li class="List-group-item">Bought Beer</li>
-    <li class="List-group-item">Bought Beer</li>
-    <li class="List-group-item">Bought Beer</li>
-    <li class="List-group-item">Bought Beer</li>
-    <li class="List-group-item">Bought Beer</li>
-    <li class="List-group-item">Bought Beer</li>
-    <li class="List-group-item">Bought Beer</li>
-</ul>
+{% if user.is_authenticated %}
+<h1>Welcome {{ user.username }}, to the Expense Tracker</h1>
+{% else %}
+<h1>Welcome to the Expense Tracker</h1>
+{% endif %}
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Expenses</a></li>
+      <li class="breadcrumb-item active" aria-current="page">My Expenses</li>
+    </ol>
+</nav>
 
 {% endblock %} 
