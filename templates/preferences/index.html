@@ -6,24 +6,33 @@
 
 {%  include 'partials/messages.html' %}
 <div class="container mt-4">
-    <h1>Preferred Currency</h1>
-    <hr>
-    <form action="{% url 'preferences' %}" method="post">
-        {% csrf_token %}
-        <div class="input-group">
-            <select name="currency" class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon">
-            {% if user_preferences.currency %}
-            <option name="currency" selected value="{{ user_preferences.currency }}">{{ user_preferences.currency }}</option>
-            {% else %}
-            <option selected>Choose...</option>
-            {% endif %}
-            {% for currency in currencies %}
-            <option name="currency" value="{{ currency.name }} - {{ currency.value }}">{{ currency.name }} - {{ currency.value }}</option>
-            {% endfor %}
-            </select>
-            <input class="btn btn-outline-secondary" type="submit" value="save">
+            <h1>Preferred Currency</h1>
+            <hr>
+            <form action="{% url 'preferences' %}" method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <select name="currency" class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+                            {% if user_preferences.currency %}
+                            <option name="currency" selected value="{{ user_preferences.currency }}">{{ user_preferences.currency }}</option>
+                            {% else %}
+                            <option selected>Choose...</option>
+                            {% endif %}
+                            {% for currency in currencies %}
+                            <option name="currency" value="{{ currency.name }} - {{ currency.value }}">{{ currency.name }} - {{ currency.value }}</option>
+                            {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <input class="btn btn-outline-success" type="submit" value="save">
+                    </div>
+                </div>
+
+                            
+            </form>
         </div>
-    </form>
 </div>
 
 

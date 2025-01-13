@@ -1,5 +1,5 @@
 """
-WSGI config for expensewebsite project.
+WSGI config for expenswise project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

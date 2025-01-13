@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     alert.remove();
                 }, 1000);
             });
-        }, 10000);
+        }, 3000);
 
         Array.from(closeBtn).forEach(function(btn) {
             btn.addEventListener('click', function() {

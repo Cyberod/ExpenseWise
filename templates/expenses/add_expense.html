@@ -2,21 +2,57 @@
 
 
 {% block content %}
-<div class="container mt-5">
+
+<div class="container mt-2">
+    <h4>Add Expense</h4>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'expenses' %}">Expenses</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Add Expenses</li>
+        </ol>
+    </nav>
+
+
     <div class="row">
-        <div class="col-md-10">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{% url 'expenses' %}">Expenses</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Add Expenses</li>
-                </ol>
-            </nav>
-        </div>
-        <div class="col-md-2">
-            <a href="{% url 'add-expense' %}" class="btn btn-primary">Add Expense</a>
+        <div class="col-md-12">
+            <div class="card mt-3">
+                <div class="card-body">
+                    <form action="{% url 'add-expense' %}" method="post">
+                        {% include 'partials/messages.html' %}
+                        {% csrf_token %}
+                        <div class="form-group mt-2">
+                            <label for="">Amount</label>
+                            <input type="number" class="form-control form-control-sm search-wrapper" name="amount" value="{{ values.amount }}">
+                        </div>
+            
+                        <div class="form-group mt-2">
+                            <label for="">Description</label>
+                            <input type="text" class="form-control form-control-sm search-wrapper" name="description" value="{{ values.description}}">
+                        </div>
+            
+                        <div class="form-group mt-2">
+                            <label for="">Category</label>
+                            
+                            <select class="form-control form-control-sm search-wrapper" name="category">
+                                {% for category in categories %}
+                                <option value="{{ category.name }}">{{ category.name }}</option>
+                                {% endfor %}
+                            </select>
+                            
+                        </div>
+            
+                        <div class="form-group mt-2">
+                            <label for="">Date</label>
+                            <input type="date" class="form-control form-control-sm search-wrapper" name="expense_date" value="{{ values.expense_date }}">
+                        </div>
+            
+                        <div class="submit-btn-wrapper"><input type="submit" value="Submit" class="btn btn-block submit-btn mt-3"></div>
+                    </form>
+                </div>        
+            </div>
         </div>
     </div>
 </div>
 
-{% include 'partials/_messages.html' %}
 {% endblock %}

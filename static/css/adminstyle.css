@@ -1,0 +1,52 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Quicksand:wght@300&display=swap');
+
+
+:root {
+    --primary-color: #5a06f7;
+    --secondary-color:#6f26f8;
+}
+
+
+#header {
+    background: var(--primary-color);
+
+}
+
+h1 {
+    font-weight: bold;
+}
+
+.module h2, .module caption, .inline-group h2 {
+    background: var(--primary-color);
+}
+
+div.breadcrumbs {
+    background-color: var(--secondary-color);
+}
+
+body {
+    color: white;
+    background-color: #343A40;
+}
+
+.toggle-nav-sidebar {
+    background-color: #343A40;
+    border-right:#343A40;
+    color: white;
+}
+
+#nav-sidebar {
+    background-color: #343A40;
+}
+
+tr:nth-child(odd), .row-form-errors {
+    background: #343A40;
+}
+tr:nth-child(even), tr:nth-child(even) .errorlist, tr:nth-child(odd) + .row-form-errors, tr:nth-child(odd) + .row-form-errors .errorlist {
+    background: #343A40;
+}
+
+a:link {
+    color: white;
+}
