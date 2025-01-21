@@ -9,12 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const alerts = messages.getElementsByClassName('alert');
             Array.from(alerts).forEach(function(alert) {
                 alert.style.transition = 'opacity 1s';
-                alert.style.opacity = '0';
-                setTimeout(function() {
-                    alert.remove();
-                }, 1000);
             });
-        }, 3000);
+        });
 
         Array.from(closeBtn).forEach(function(btn) {
             btn.addEventListener('click', function() {
