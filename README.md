@@ -27,7 +27,7 @@ The **Expense Tracker Dashboard** is a web application designed to help users ma
 
 ## Technology Stack
 - **Backend**: Django 5.1 (Python)
-- **Frontend**: HTML, CSS, JavaScript (with Chart.js for visualizations)
+- **Frontend**: HTML, CSS, Bootstrap Css, JavaScript (with Chart.js for visualizations)
 - **Database**: SQLite (default, configurable for production)
 - **Export Libraries**: `xlwt` for Excel, `weasyprint` for PDF generation
 - **Other Tools**: Django Messages Framework for notifications, Django Paginator for record navigation
