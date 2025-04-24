@@ -1,8 +1,8 @@
 ---
 
-# Expense Tracker Dashboard
+# ExpenseWise
 
-The **Expense Tracker Dashboard** is a web application designed to help users manage their personal finances by tracking expenses and income. It provides an intuitive interface for adding, editing, and deleting financial records, as well as generating insightful visualizations and exporting data in various formats.
+The **ExpenseWise** is a web application designed to help users manage their personal finances by tracking expenses and income. It provides an intuitive interface for adding, editing, and deleting financial records, as well as generating insightful visualizations and exporting data in various formats.
 
 ## Features
 
