@@ -17,5 +17,5 @@ services:
 
 databases:
   - name: expensewise-db
-    type: mysql
+    engine: mysql
     plan: free
