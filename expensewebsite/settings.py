@@ -137,13 +137,19 @@ MESSAGE_TAGS = {
 }
 
 # Email Settings
-EMAIL_HOST = os.environ.get('EMAIL_HOST')
-EMAIL_PORT = int(os.environ.get('EMAIL_PORT'))
+# Email Settings for Port 465 (SSL)
+EMAIL_HOST = os.environ.get('EMAIL_HOST')  # Should be 'smtp.gmail.com'
+EMAIL_PORT = 465  # <-- Change to 465
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-EMAIL_USE_TLS = bool(os.environ.get('EMAIL_USE_TLS'))
-DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+# IMPORTANT: Use SSL, not TLS, for port 465
+EMAIL_USE_TLS = False  # <-- Set to False
+EMAIL_USE_SSL = True   # <-- Set to True
+# Convert the environment variable correctly
+# EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS') == 'True' # Keep this for other ports if needed
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+
 
 
 
