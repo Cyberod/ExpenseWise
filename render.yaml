@@ -5,18 +5,17 @@ services:
     name: expensewise-web
     env: python
     plan: free
-    buildCommand: pip install -r requirements.txt
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py migrate
     startCommand: gunicorn expensewebsite.wsgi:application
     envVars:
       - key: DEBUG
         value: "False"
       - key: ALLOWED_HOSTS
-        value: "*"  # restrict later to your render domain or comma-separated hosts
-      # SECRET_KEY, EMAIL_HOST_*, etc. should be configured as secrets in the dashboard
-
-# managed MySQL database will be created by Render and DATABASE_URL set automatically
+        value: "*"
 
 databases:
   - name: expensewise-db
-    engine: mysql
+    type: mysql
     plan: free
