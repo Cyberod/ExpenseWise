@@ -42,16 +42,9 @@ The **ExpenseWise** is a web application designed to help users manage their per
    ```bash
    pip install -r requirements.txt
    ```
-3. Set up environment variables:
-   - Create a .env file in the root directory.
-   - Add the following variables:
-     ```
-     EMAIL_HOST=<your-email-host>
-     EMAIL_PORT=<your-email-port>
-     EMAIL_HOST_USER=<your-email>
-     EMAIL_HOST_PASSWORD=<your-email-password>
-     EMAIL_USE_TLS=True
-     ```
+3. Set up environment variables (local development):
+   - Create a `.env` file in the root directory or copy `.env.example`.
+   - Add the variables required such as email configuration and any API keys.
 4. Run database migrations:
    ```bash
    python manage.py migrate
@@ -60,6 +53,26 @@ The **ExpenseWise** is a web application designed to help users manage their per
    ```bash
    python manage.py runserver
    ```
+
+### Deploying to Render
+1. **Push your code** to a GitHub/GitLab repository.
+2. **Create a new Web Service** on Render, connect your repo, and select the `main` (or default) branch.
+3. Ensure the build command (`pip install -r requirements.txt`) and start command
+   (`gunicorn expensewebsite.wsgi:application`) are set; they are also defined in
+   `render.yaml` for infrastructure-as-code deployments.
+4. Add environment variables in the Render dashboard or via `render.yaml`:
+   - `SECRET_KEY`, `DEBUG=False`, `ALLOWED_HOSTS` (your render domain), etc.
+   - Render will automatically provide `DATABASE_URL` when you create a MySQL
+     managed database (configured in `render.yaml`).
+5. After deployment completes, run one-off migrations from the Render console:
+   ```bash
+   render exec --service expensewise-web -- python manage.py migrate
+   ```
+6. Static files are collected automatically during build (via `collectstatic`).
+   WhiteNoise serves them from the same web service.
+
+Refer to [render.com/docs/deploy-python-django](https://render.com/docs/deploy-python-django)
+for more details.
 ---
 
 ## Usage

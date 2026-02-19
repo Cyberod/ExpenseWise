@@ -1,2 +1,15 @@
 .env
 myenv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+# Django database and static files
+db.sqlite3
+/staticfiles/
+# local environments
+*.egg-info/
+
+# IDE/editor files
+.vscode/
+*.swp
