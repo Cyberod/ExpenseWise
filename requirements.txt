@@ -34,3 +34,5 @@ gunicorn
 whitenoise
 dj-database-url
 PyMySQL
+sendgrid
+django-anymail[sendgrid]

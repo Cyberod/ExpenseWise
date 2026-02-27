@@ -73,6 +73,8 @@ class RegistrationView(View):
             'protocol': 'https' if request.is_secure() else 'http'
         })
         email = EmailMessage(email_subject, message, to=[to_email])
+        # make sure the HTML template is rendered as HTML rather than plain text
+        email.content_subtype = 'html'
         if email.send():
             messages.success(request, f'Dear <b>{user.username}</b>, kindly go to <b>{to_email}</b> inbox and click on the the recieved activation\
                 link to activate your account and complete registration. <b>note:</b> also Check your spam folder')
@@ -170,6 +172,7 @@ class RequestPasswordResetEmail(View):
             })
             
             email = EmailMessage(email_subject, message, to=[email])
+            email.content_subtype = 'html'  # use HTML formatting so button renders correctly
             email.send()
             
             messages.success(request, 'Password reset link has been sent to your email')

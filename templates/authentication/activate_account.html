@@ -1,7 +1,8 @@
 {% autoescape off %}
 Hi {{ user }},
 
-Kindly click on the link below to verify your account:
+Kindly click on the button below to activate your account:
 
-<a href="{{ protocol }}://{{ domain }}{% url 'activate' uidb64=uid token=token %}">Activate Account</a>
+<p><a href="{{ protocol }}://{{ domain }}{% url 'activate' uidb64=uid token=token %}" style="background-color:#007bff;color:#ffffff;padding:10px 20px;text-decoration:none;border-radius:4px;display:inline-block;">Activate account</a></p>
+
 {% endautoescape %}
